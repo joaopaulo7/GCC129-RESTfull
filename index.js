@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const estudantes_controller = require('./estudantes-controller')
 
 
-console.log('mongodb+srv://'+ENV_DB_USER+':'+ENV_DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority')
+console.log('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority')
 
 mongoose.connect('mongodb+srv://'+ENV_DB_USER+':'+ENV_DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.Promise = global.Promise
