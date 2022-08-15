@@ -1,5 +1,9 @@
+//importa a classe de modelo Tarefa
 var tarefas = require('./tarefas-model')
 
+//As funções abaixo são definidas e exportadas para o Index.js 
+
+//Busca no DB e lista todas tarefas
 exports.listarTarefas = function (req, res) {
     tarefas.find({}, function (err, tarefas) {
         if (err) return next(err)
@@ -7,6 +11,7 @@ exports.listarTarefas = function (req, res) {
     })
 }
 
+//Busca no DB por ID e lista a tarefa correspondente
 exports.buscarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
@@ -14,6 +19,7 @@ exports.buscarTarefa = function (req, res) {
     })
 }
 
+//Cria um objeto tarefa com os dados dados na requisição e envia pro DB
 exports.cadastrarTarefa = function (req, res) {
     let tarefa = new tarefas({
         descricao: req.body.descricao,
@@ -28,18 +34,21 @@ exports.cadastrarTarefa = function (req, res) {
     res.send('tarefa cadastrada com sucesso.')
 }
 
+//Busca uma tarefa por ID no DB, ao encontar, faz as alterações necessárias
 exports.alterarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
+        
         tarefa.updateOne(req.body, function (err){
-		if (err) {
-		    return next(err)
-		}
+            if (err) {
+                return next(err)
+            }
     	})
     })
     res.send('tarefa alterada com sucesso.')
 }
 
+//Busca uma tarefa por ID no DB, ao encontar, deleta ela do DB
 exports.deletarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
