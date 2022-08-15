@@ -1,6 +1,6 @@
 # GCC129-RESTfull
 
-Atualmente hosteador em: https://gcc129-restfull.herokuapp.com/
+Atualmente hosteado em: https://gcc129-restfull.herokuapp.com/
 
 <br>
 
