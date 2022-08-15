@@ -1,20 +1,20 @@
 var tarefas = require('./tarefas-model')
 
-exports.listartarefas = function (req, res) {
+exports.listarTarefas = function (req, res) {
     tarefas.find({}, function (err, tarefas) {
         if (err) return next(err)
         return res.json(tarefas);
     })
 }
 
-exports.buscartarefa = function (req, res) {
+exports.buscarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
         return res.json(tarefa)
     })
 }
 
-exports.cadastrartarefa = function (req, res) {
+exports.cadastrarTarefa = function (req, res) {
     let tarefa = new tarefas({
         descricao: req.body.descricao,
         prazo: req.body.prazo,
@@ -25,10 +25,10 @@ exports.cadastrartarefa = function (req, res) {
             return next(err)
         }
     })
-    res.send('tarefa cadastrado com sucesso.')
+    res.send('tarefa cadastrada com sucesso.')
 }
 
-exports.alterartarefa = function (req, res) {
+exports.alterarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
         tarefa.updateOne(req.body, function (err){
@@ -37,10 +37,10 @@ exports.alterartarefa = function (req, res) {
 		}
     	})
     })
-    res.send('tarefa alterado com sucesso.')
+    res.send('tarefa alterada com sucesso.')
 }
 
-exports.deletartarefa = function (req, res) {
+exports.deletarTarefa = function (req, res) {
     tarefas.findById(req.params.id, function(err, tarefa){
         if (err) return next(err)
         tarefa.deleteOne( function (err){
@@ -49,5 +49,5 @@ exports.deletartarefa = function (req, res) {
 		}
     	})
     })
-    res.send('tarefa deletado com sucesso.')
+    res.send('tarefa deletada com sucesso.')
 }

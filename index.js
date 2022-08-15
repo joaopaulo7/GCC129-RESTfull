@@ -26,11 +26,11 @@ app.get('/', (req, res) => {
 	res.send('teste oi')
 })
 
-router.post('/tarefas', tarefas_controller.cadastrartarefa)
-router.get('/tarefas', tarefas_controller.listartarefas)
-router.get('/tarefas/:id', tarefas_controller.buscartarefa)
-router.put('/tarefas/:id', tarefas_controller.alterartarefa)
-router.delete('/tarefas/:id', tarefas_controller.deletartarefa)
+router.post('/tarefas', tarefas_controller.cadastrarTarefa)
+router.get('/tarefas', tarefas_controller.listarTarefas)
+router.get('/tarefas/:id', tarefas_controller.buscarTarefa)
+router.put('/tarefas/:id', tarefas_controller.alterarTarefa)
+router.delete('/tarefas/:id', tarefas_controller.deletarTarefa)
 
 app.use('/', router)
 
