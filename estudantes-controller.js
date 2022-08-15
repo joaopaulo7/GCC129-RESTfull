@@ -1,5 +1,19 @@
 var Estudantes = require('./estudantes-model')
 
+exports.listarEstudantes = function (req, res) {
+    Estudantes.find({}, function (err, estudantes) {
+        if (err) return next(err)
+        return res.json(estudantes);
+    })
+}
+
+exports.buscarEstudante = function (req, res) {
+    Estudantes.findById(req.params.id, function(err, estudante){
+        if (err) return next(err)
+        return res.json(estudante)
+    })
+}
+
 exports.cadastrarEstudante = function (req, res) {
     let estudante = new Estudantes({
         nome: req.body.nome,

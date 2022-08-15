@@ -24,7 +24,11 @@ app.get('/', (req, res) => {
 	res.send('teste oi')
 })
 
-router.post('/', estudantes_controller.cadastrarEstudante)
+router.post('/estudantes', estudantes_controller.cadastrarEstudante)
+router.get('/estudantes', estudantes_controller.listarEstudantes)
+router.get('/estudantes/:id', estudantes_controller.buscarEstudante)
+
+app.use('/', router)
 
 let porta = process.env.PORT || 3000
 
