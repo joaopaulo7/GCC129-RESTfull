@@ -1,7 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 
-const estudante_controller = require('./estudantes-controller')
+const estudantes_controller = require('./estudantes-controller')
 
 
 mongoose.connect('mongodb+srv://joao:KUDqRH6CJsuYRJX@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 	res.send('teste oi')
 })
 
-router.post('/', estudantes.controller.cadastrarEstudante)
+router.post('/', estudantes_controller.cadastrarEstudante)
 
 let porta = process.env.PORT || 3000
 
