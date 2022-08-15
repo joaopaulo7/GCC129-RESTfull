@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-	res.send('teste oi')
+	res.send('REST tarefas. por favor, faça requisições no /tarefas')
 })
 
 router.post('/tarefas', tarefas_controller.cadastrarTarefa)
