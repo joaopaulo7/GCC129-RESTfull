@@ -29,7 +29,6 @@ exports.cadastrarEstudante = function (req, res) {
 }
 
 exports.alterarEstudante = function (req, res) {
-
     Estudantes.findById(req.params.id, function(err, estudante){
         if (err) return next(err)
         estudante.updateOne(req.body, function (err){
@@ -37,13 +36,11 @@ exports.alterarEstudante = function (req, res) {
 		    return next(err)
 		}
     	})
-    
     })
     res.send('estudante alterado com sucesso.')
 }
 
 exports.deletarEstudante = function (req, res) {
-
     Estudantes.findById(req.params.id, function(err, estudante){
         if (err) return next(err)
         estudante.deleteOne( function (err){
@@ -51,7 +48,6 @@ exports.deletarEstudante = function (req, res) {
 		    return next(err)
 		}
     	})
-    
     })
     res.send('estudante deletado com sucesso.')
 }
