@@ -27,3 +27,31 @@ exports.cadastrarEstudante = function (req, res) {
     })
     res.send('estudante cadastrado com sucesso.')
 }
+
+exports.alterarEstudante = function (req, res) {
+
+    Estudantes.findById(req.params.id, function(err, estudante){
+        if (err) return next(err)
+        estudante.updateOne(req.body, function (err){
+		if (err) {
+		    return next(err)
+		}
+    	})
+    
+    })
+    res.send('estudante alterado com sucesso.')
+}
+
+exports.deletarEstudante = function (req, res) {
+
+    Estudantes.findById(req.params.id, function(err, estudante){
+        if (err) return next(err)
+        estudante.deleteOne( function (err){
+		if (err) {
+		    return next(err)
+		}
+    	})
+    
+    })
+    res.send('estudante deletado com sucesso.')
+}
