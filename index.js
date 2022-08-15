@@ -1,7 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 
-const estudantes_controller = require('./estudantes-controller')
+const tarefas_controller = require('./tarefas-controller')
 
 
 console.log('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority')
@@ -26,11 +26,11 @@ app.get('/', (req, res) => {
 	res.send('teste oi')
 })
 
-router.post('/estudantes', estudantes_controller.cadastrarEstudante)
-router.get('/estudantes', estudantes_controller.listarEstudantes)
-router.get('/estudantes/:id', estudantes_controller.buscarEstudante)
-router.put('/estudantes/:id', estudantes_controller.alterarEstudante)
-router.delete('/estudantes/:id', estudantes_controller.deletarEstudante)
+router.post('/tarefas', tarefas_controller.cadastrartarefa)
+router.get('/tarefas', tarefas_controller.listartarefas)
+router.get('/tarefas/:id', tarefas_controller.buscartarefa)
+router.put('/tarefas/:id', tarefas_controller.alterartarefa)
+router.delete('/tarefas/:id', tarefas_controller.deletartarefa)
 
 app.use('/', router)
 
