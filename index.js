@@ -3,9 +3,6 @@ const mongoose = require("mongoose")
 
 const tarefas_controller = require('./tarefas-controller')
 
-
-console.log('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority')
-
 mongoose.connect('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASSWORD+'@cluster0.3wr9sde.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.Promise = global.Promise
 try {
