@@ -22,7 +22,10 @@ exports.buscarTarefa = function (req, res) {
 //Cria um objeto tarefa com os dados dados na requisição e envia pro DB
 exports.cadastrarTarefa = function (req, res) {
     if(req.body.descricao == null)
-        throw("Descrição vazia")
+    {
+        res.send("Descrição vazia")
+        throw(("Descrição vazia")
+    }
     let tarefa = new tarefas({
         descricao: req.body.descricao,
         prazo: req.body.prazo,
