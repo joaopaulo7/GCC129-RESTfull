@@ -15,3 +15,15 @@ Este app utiliza o banco de dados em nuvem Moongoose com endereço em DB_ADDR, m
 <br>
 
 ## Intruções
+
+<ul>
+<li><b>Get /tarefas:</b> retorna uma lista com todas as tarefas.</li>
+
+<li><b>Get /tarefas/{identificador}:</b> retorna a tarefa correspondente ao identificador.</li>
+
+<li><b>Post /tarefas:</b>  inclui uma tarefa;os dados da tarefa devem ser passados no corpo da requisição HTTP.</li>
+
+<li><b>Delete /tarefas/{identificador}:</b> exclui a tarefa correspondente ao identificador.</li>
+
+<li><b>Put /tarefas/{identificador}:</b> altera os dados da tarefa correspondente ao identificador; os novos dados devem ser passados no corpo da requisição HTTP.</li>
+</ul>
